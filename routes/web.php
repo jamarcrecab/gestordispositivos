@@ -43,12 +43,4 @@ Route::get('/dispositivos/mostrar/{id}', [DispositivosController::class,'mostrar
 Route::post('/dispositivos/editar/{id}',[DispositivosController::class,'actualizar']);
 Route::delete('/dispositivos/borrar/{id}',[DispositivosController::class,'eliminar']);
 
-Route::post('/test', function(){
-
-    return redirect()->back()->with('mensaje','Dispositivo');
-
-});
-
-
-
 });

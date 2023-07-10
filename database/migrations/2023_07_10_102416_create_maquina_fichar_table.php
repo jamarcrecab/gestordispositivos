@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('dispositivos', function (Blueprint $table) {
-
-            $table->id()->autoIncrement();
+        Schema::create('maquina_fichar', function (Blueprint $table) {
+            $table->id();
             $table->string('nombre_dispositivo')->unique()->nullable(false);
-            $table->string('numero_serie')->nullable(true);
-            $table->string('conexion')->nullable(false);
-            $table->string('zona_trabajo')->nullable(false);
+            $table->int('ip_principal')->nullable(false);
+            $table->text('observaciones')->nullable(true);
             $table->timestamps();
+
+            $table->foreign('nombre_dispositivo')->references('nombre_dispositivo')->on('dispositivos')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('dispositivos');
+        Schema::dropIfExists('maquina_fichar');
     }
 };

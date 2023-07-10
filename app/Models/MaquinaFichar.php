@@ -5,24 +5,24 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Dispositivo extends Model
+class MaquinaFichar extends Model
 {
     use HasFactory;
-
 
 
     protected $fillable = [
 
         'nombre_dispositivo',
-        'numero_serie',
-        'tipo_dispositivo',
-        'conexion'
+        'modelo',
+        'observaciones',
+
+
     ];
 
     protected $hidden = [
 
         'created_at',
-        'updated_at'
+        'updated_at',
 
     ];
 
@@ -30,9 +30,5 @@ class Dispositivo extends Model
 
         'created_at' => 'datetime: d-m-Y',
 
-    ];
-
-        
-    
-
+    ]
 }

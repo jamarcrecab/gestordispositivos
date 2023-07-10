@@ -5,18 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Dispositivo extends Model
+class Impresora extends Model
 {
     use HasFactory;
-
 
 
     protected $fillable = [
 
         'nombre_dispositivo',
-        'numero_serie',
-        'tipo_dispositivo',
-        'conexion'
+        'ip_principal',
+        'ip_secundaria',
+        'cabildo',
+        'observaciones'
+
     ];
 
     protected $hidden = [
@@ -29,10 +30,5 @@ class Dispositivo extends Model
     protected $casts = [
 
         'created_at' => 'datetime: d-m-Y',
-
     ];
-
-        
-    
-
 }

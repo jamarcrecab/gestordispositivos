@@ -5,18 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Dispositivo extends Model
+class Telefonos extends Model
 {
     use HasFactory;
-
 
 
     protected $fillable = [
 
         'nombre_dispositivo',
-        'numero_serie',
-        'tipo_dispositivo',
-        'conexion'
+        'marca',
+        'modelo',
+        'usuario_principal',
+        'numero_telefono',
+        'departamento',
+        'correo',
+        
+
     ];
 
     protected $hidden = [
@@ -30,9 +34,5 @@ class Dispositivo extends Model
 
         'created_at' => 'datetime: d-m-Y',
 
-    ];
-
-        
-    
-
+    ]
 }

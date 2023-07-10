@@ -222,11 +222,26 @@
                     </div>
 
                     <div class="mt-4">
-                        <label for="numero_serie" class="text-lg mb-3">Número de Serie</label>
+                        <label for="numero_serie" class="text-lg mb-3">Número de Serie (Opcional)</label>
                         <input v-model="formTelefonia.numero_serie" type="text" class="block appearance-none w-35 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:ring-teal-600 focus:outline-teal-600 focus:shadow-outline-teal-600 md:w-50 sm:w-50 xl:w-80 2xl:w-80"/>
 
                         <div v-if="formTelefonia.errors.numero_serie" v-text="formTelefonia.errors.numero_serie" class="w-80 mt-5 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert"></div>
 
+                    </div>
+
+                    <div class="mt-4">
+                        <label for="conexion" class="text-lg mb-3">Conexión</label>
+                        <input v-model="formImp.conexion" type="text" class="block appearance-none w-35 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:ring-teal-600 focus:outline-teal-600 focus:shadow-outline-teal-600 md:w-50 sm:w-50 xl:w-80 2xl:w-80"/>
+
+                        <div v-if="formImp.errors.conexion" v-text="formImp.errors.conexion" class="w-80 mt-5 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert"></div>
+                       
+                    </div>
+
+                    <div class="mt-4">
+                        <label for="zonatrabajo" class="text-lg mb-3">Zona de Trabajo</label>
+                        <input v-model="formImp.zona_trabajo" type="text" class="block appearance-none w-35 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:ring-teal-600 focus:outline-teal-600 focus:shadow-outline-teal-600 md:w-50 sm:w-50 xl:w-80 2xl:w-80"/>
+
+                        <div v-if="formImp.errors.zona_trabajo" v-text="formImp.errors.zona_trabajo" class="w-80 mt-5 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert"></div>
                     </div>
 
                     <div class="mt-4">
@@ -254,21 +269,6 @@
                         <label for="ip_secundaria" class="text-lg mb-3">IP Secundaria (Opcional)</label>
                         <input v-model="formImp.ip_secundaria" type="text" class="block appearance-none w-35 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:ring-teal-600 focus:outline-teal-600 focus:shadow-outline-teal-600 md:w-50 sm:w-50 xl:w-80 2xl:w-80"/>
 
-                    </div>
-
-                    <div class="mt-4">
-                        <label for="conexion" class="text-lg mb-3">Conexión</label>
-                        <input v-model="formImp.conexion" type="text" class="block appearance-none w-35 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:ring-teal-600 focus:outline-teal-600 focus:shadow-outline-teal-600 md:w-50 sm:w-50 xl:w-80 2xl:w-80"/>
-
-                        <div v-if="formImp.errors.conexion" v-text="formImp.errors.conexion" class="w-80 mt-5 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert"></div>
-                       
-                    </div>
-
-                    <div class="mt-4">
-                        <label for="zonatrabajo" class="text-lg mb-3">Zona de Trabajo</label>
-                        <input v-model="formImp.zona_trabajo" type="text" class="block appearance-none w-35 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:ring-teal-600 focus:outline-teal-600 focus:shadow-outline-teal-600 md:w-50 sm:w-50 xl:w-80 2xl:w-80"/>
-
-                        <div v-if="formImp.errors.zona_trabajo" v-text="formImp.errors.zona_trabajo" class="w-80 mt-5 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert"></div>
                     </div>
 
                     <div class="mt-4">
@@ -303,11 +303,130 @@
         </div>
 
         <div v-if="tipodispositivo === 'MaquinaFichar'">
-            <form  @submit.prevent="submitImpresora" class="w-auto flex flex-col justify-start text-teal-600 mb-10 mt-7 bg-gray-50 shadow-md p-10 md:flex-row w-2/3 lg:w-2/3 xl:w-2/3 2xl:w-2/3">
+            <form  @submit.prevent="submitMF" class="flex flex-col justify-start text-teal-600 mb-10 mt-7 bg-gray-50 shadow-md p-10 md:flex-row w-auto sm:w-2/3 md:w-2/5 lg:w-2/4 xl:w-2/5 2xl:w-2/5">
                 <div class="pr-20">
+
+                    <div class="mt-4">
+                        <label for="conexion" class="text-lg mb-3">Nombre Dispositivo</label>
+                        <input v-model="formMF.nombre_dispositivo" type="text" class="block appearance-none w-35 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:ring-teal-600 focus:outline-teal-600 focus:shadow-outline-teal-600 md:w-50 sm:w-50 xl:w-80 2xl:w-80"/>
+
+                        <div v-if="formMF.errors.nombre_dispositivo" v-text="formMF.errors.nombre_dispositivo" class="w-80 mt-5 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert"></div>
+                       
+                    </div>
+
+                    <div class="mt-4">
+                        <label for="zonatrabajo" class="text-lg mb-3">Número de Serie (Opcional)</label>
+                        <input v-model="formMF.numero_serie" type="text" class="block appearance-none w-35 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:ring-teal-600 focus:outline-teal-600 focus:shadow-outline-teal-600 md:w-50 sm:w-50 xl:w-80 2xl:w-80"/>
+
+                        <div v-if="formMF.errors.numero_serie" v-text="formMF.errors.numero_serie" class="w-80 mt-5 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert"></div>
+                    </div>
+
+                    <div class="mt-4">
+                        <label for="conexion" class="text-lg mb-3">Conexión</label>
+                        <input v-model="formImp.conexion" type="text" class="block appearance-none w-35 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:ring-teal-600 focus:outline-teal-600 focus:shadow-outline-teal-600 md:w-50 sm:w-50 xl:w-80 2xl:w-80"/>
+
+                        <div v-if="formImp.errors.conexion" v-text="formImp.errors.conexion" class="w-80 mt-5 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert"></div>
+                       
+                    </div>
+
+                    <div class="mt-4">
+                        <label for="zonatrabajo" class="text-lg mb-3">Zona de Trabajo</label>
+                        <input v-model="formMF.zona_trabajo" type="text" class="block appearance-none w-35 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:ring-teal-600 focus:outline-teal-600 focus:shadow-outline-teal-600 md:w-50 sm:w-50 xl:w-80 2xl:w-80"/>
+
+                        <div v-if="formMF.errors.zona_trabajo" v-text="formMF.errors.zona_trabajo" class="w-80 mt-5 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert"></div>
+                    </div>
+
+                    <div class="mt-4">
+                        <label for="ip1" class="text-lg mb-3">IP Principal</label>
+                        <input v-model="formMF.ip_principal" type="number" class="block appearance-none w-35 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:ring-teal-600 focus:outline-teal-600 focus:shadow-outline-teal-600 md:w-50 sm:w-50 xl:w-80 2xl:w-80"/>
+
+                        <div v-if="formMF.errors.ip_principal" v-text="formMF.errors.ip_principal" class="w-80 mt-5 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert"></div>
+                    </div>
+
+                    <div class="mt-4">
+                        <label for="observaciones" class="text-lg mb-3">Observaciones (Opcional)</label>
+                        <textarea name="observaciones" v-model="formMF.observaciones" class="block appearance-none w-35 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:ring-teal-600 focus:outline-teal-600 focus:shadow-outline-teal-600 md:w-80 sm:w-50 xl:w-80 2xl:w-80" placeholder="Deja aquí las observaciones..."></textarea>
+
+                    </div>
+
+                    <div class="mt-4">
+
+                        <button type="submit" class="p-2 bg-teal-600 border border-transparent rounded-md font-semibold text-lg text-white hover:bg-teal-700 focus:bg-teal-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 ease-out duration-300">Crear</button>
+
+                    </div>
+
 
                 </div>
             </form>
+        </div>
+
+        <div v-if ="tipodispositivo === 'Grabadora'">
+
+            <form  @submit.prevent="submitGrabadora" class="flex flex-col justify-start text-teal-600 mb-10 mt-7 bg-gray-50 shadow-md p-10 md:flex-row w-auto sm:w-2/3 md:w-2/5 lg:w-2/4 xl:w-2/5 2xl:w-2/5">
+                <div class="pr-20">
+
+                    <div class="mt-4">
+                        <label for="nombre_dispositivo" class="text-lg mb-3">Nombre Dispositivo</label>
+                        <input v-model="formGrabadora.nombre_dispositivo" type="text" class="block appearance-none w-35 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:ring-teal-600 focus:outline-teal-600 focus:shadow-outline-teal-600 md:w-50 sm:w-50 xl:w-80 2xl:w-80"/>
+
+                        <div v-if="formGrabadora.errors.nombre_dispositivo" v-text="formGrabadora.errors.nombre_dispositivo" class="w-80 mt-5 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert"></div>
+                       
+                    </div>
+
+                    <div class="mt-4">
+                        <label for="zonatrabajo" class="text-lg mb-3">Número de Serie (Opcional)</label>
+                        <input v-model="formGrabadora.zona_trabajo" type="text" class="block appearance-none w-35 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:ring-teal-600 focus:outline-teal-600 focus:shadow-outline-teal-600 md:w-50 sm:w-50 xl:w-80 2xl:w-80"/>
+
+                        <div v-if="formGrabadora.errors.zona_trabajo" v-text="formGrabadora.errors.zona_trabajo" class="w-80 mt-5 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert"></div>
+                    </div>
+
+                    <div class="mt-4">
+                        <label for="conexion" class="text-lg mb-3">Conexión</label>
+                        <input v-model="formGrabadora.conexion" type="text" class="block appearance-none w-35 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:ring-teal-600 focus:outline-teal-600 focus:shadow-outline-teal-600 md:w-50 sm:w-50 xl:w-80 2xl:w-80"/>
+
+                        <div v-if="formGrabadora.errors.conexion" v-text="formGrabadora.errors.conexion" class="w-80 mt-5 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert"></div>
+                       
+                    </div>
+
+                    <div class="mt-4">
+                        <label for="zonatrabajo" class="text-lg mb-3">Zona de Trabajo</label>
+                        <input v-model="formGrabadora.zona_trabajo" type="text" class="block appearance-none w-35 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:ring-teal-600 focus:outline-teal-600 focus:shadow-outline-teal-600 md:w-50 sm:w-50 xl:w-80 2xl:w-80"/>
+
+                        <div v-if="formGrabadora.errors.zona_trabajo" v-text="formGrabadora.errors.zona_trabajo" class="w-80 mt-5 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert"></div>
+                    </div>
+
+                    <div class="mt-4">
+                        <label for="modelo" class="text-lg mb-3">Modelo</label>
+                        <input v-model="formGrabadora.zona_trabajo" type="text" class="block appearance-none w-35 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:ring-teal-600 focus:outline-teal-600 focus:shadow-outline-teal-600 md:w-50 sm:w-50 xl:w-80 2xl:w-80"/>
+
+                        <div v-if="formGrabadora.errors.zona_trabajo" v-text="formGrabadora.errors.zona_trabajo" class="w-80 mt-5 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert"></div>
+                    </div>
+
+                    <div class="mt-4">
+                        <label for="ip_principal" class="text-lg mb-3">IP Principal</label>
+                        <input v-model="formGrabadora.ip_principal" type="number" class="block appearance-none w-35 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:ring-teal-600 focus:outline-teal-600 focus:shadow-outline-teal-600 md:w-50 sm:w-50 xl:w-80 2xl:w-80"/>
+
+                        <div v-if="formGrabadora.errors.ip_principal" v-text="formGrabadora.errors.ip_principal" class="w-80 mt-5 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert"></div>
+                    </div>
+
+                    <div class="mt-4">
+                        <label for="observaciones" class="text-lg mb-3">Observaciones (Opcional)</label>
+                        <textarea name="observaciones" v-model="formGrabadora.observaciones" class="block appearance-none w-35 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:ring-teal-600 focus:outline-teal-600 focus:shadow-outline-teal-600 md:w-80 sm:w-50 xl:w-80 2xl:w-80" placeholder="Deja aquí las observaciones..."></textarea>
+
+                    </div>
+
+                    <div class="mt-4">
+
+                        <button type="submit" class="p-2 bg-teal-600 border border-transparent rounded-md font-semibold text-lg text-white hover:bg-teal-700 focus:bg-teal-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 ease-out duration-300">Crear</button>
+
+                    </div>
+
+
+                </div>
+            </form>
+        
+            
+        
         </div>
 
         <div v-if="tipodispositivo === 'Telefonia'">
@@ -323,11 +442,33 @@
                     </div>
 
                     <div class="mt-4">
-                        <label for="nombre_dispositivo" class="text-lg mb-3">IMEI</label>
+                        <label for="imei" class="text-lg mb-3">IMEI</label>
                         <input v-model="formTelefonia.imei" type="text" class="block appearance-none w-35 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:ring-teal-600 focus:outline-teal-600 focus:shadow-outline-teal-600 md:w-50 sm:w-50 xl:w-80 2xl:w-80"/>
 
                         <div v-if="formTelefonia.errors.imei" v-text="formTelefonia.errors.imei" class="w-80 mt-5 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert"></div>
 
+                    </div>
+
+                    <div class="mt-4">
+                        <label for="conexion" class="text-lg mb-3">Conexión</label>
+                        <input v-model="formTelefonia.conexion" type="text" class="block appearance-none w-35 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:ring-teal-600 focus:outline-teal-600 focus:shadow-outline-teal-600 md:w-50 sm:w-50 xl:w-80 2xl:w-80"/>
+
+                        <div v-if="formTelefonia.errors.conexion" v-text="formTelefonia.errors.conexion" class="w-80 mt-5 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert"></div>
+                       
+                    </div>
+
+                    <div class="mt-4">
+                        <label for="departamento" class="text-lg mb-3">Departamento</label>
+                        <input v-model="formTelefonia.departamento" type="text" class="block appearance-none w-35 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:ring-teal-600 focus:outline-teal-600 focus:shadow-outline-teal-600 md:w-50 sm:w-50 xl:w-80 2xl:w-80"/>
+
+                        <div v-if="formTelefonia.errors.departamento" v-text="formTelefonia.errors.departamento" class="w-80 mt-5 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert"></div>
+                    </div>
+
+                    <div class="mt-4">
+                        <label for="zonatrabajo" class="text-lg mb-3">Zona de Trabajo</label>
+                        <input v-model="formGrabadora.zona_trabajo" type="text" class="block appearance-none w-35 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:ring-teal-600 focus:outline-teal-600 focus:shadow-outline-teal-600 md:w-50 sm:w-50 xl:w-80 2xl:w-80"/>
+
+                        <div v-if="formGrabadora.errors.zona_trabajo" v-text="formGrabadora.errors.zona_trabajo" class="w-80 mt-5 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert"></div>
                     </div>
 
                     <div class="mt-4">
@@ -356,13 +497,6 @@
                         <input v-model="formTelefonia.telefono" type="tel" class="block appearance-none w-35 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:ring-teal-600 focus:outline-teal-600 focus:shadow-outline-teal-600 md:w-50 sm:w-50 xl:w-80 2xl:w-80"/>
 
                         <div v-if="formTelefonia.errors.telefono" v-text="formTelefonia.errors.telefono" class="w-80 mt-5 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert"></div>
-                    </div>
-
-                    <div class="mt-4">
-                        <label for="departamento" class="text-lg mb-3">Departamento</label>
-                        <input v-model="formTelefonia.departamento" type="text" class="block appearance-none w-35 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:ring-teal-600 focus:outline-teal-600 focus:shadow-outline-teal-600 md:w-50 sm:w-50 xl:w-80 2xl:w-80"/>
-
-                        <div v-if="formTelefonia.errors.departamento" v-text="formTelefonia.errors.departamento" class="w-80 mt-5 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert"></div>
                     </div>
 
                     <div class="mt-4">
@@ -399,13 +533,11 @@ import { useForm,Head } from '@inertiajs/vue3';
 import  Layout  from '../../Layouts/Layout.vue';
 import { ref } from 'vue';
 
-
-
     const tipodispositivo = ref('Seleccionar');
 
 
     let formPC = useForm({
-
+        
         nombre_dispositivo:'',
         numero_serie:'',
         tipo_dispositivo:'',
@@ -434,10 +566,11 @@ import { ref } from 'vue';
     let formImp = useForm({
 
         nombre_dispositivo:'',
-        ip_principal:'',
-        ip_secundaria:'',
+        numero_serie:'',
         conexion:'',
         zona_trabajo:'',
+        ip_principal:'',
+        ip_secundaria:'',
         cabildo:'',
         observaciones:'',
     });
@@ -445,20 +578,41 @@ import { ref } from 'vue';
     let formMF = useForm({
 
         nombre_dispositivo:'',
-
-
+        numero_serie:'',
+        conexion:'',
+        zona_trabajo:'',
+        ip_principal:'',
+        observaciones:'',
 
     })
 
     let formTelefonia = useForm({
 
         nombre_dispositivo:'',
+        imei:'',
+        conexion:'',
+        zona_trabajo:'',
+        marca:'',
+        modelo:'',
         usuario_principal:'',
         telefono:'',
         departamento:'',
+        correo:'',
         observaciones:'',
     
     })
+
+    let formGrabadora = useForm({
+
+        nombre_dispositivo:'',
+        numero_serie:'',
+        conexion:'',
+        zona_trabajo:'',
+        modelo:'',
+        observaciones:'',
+    })
+
+    //Función para crear un nuevo registro de ordenador
 
     let submitPC= () => {
 
@@ -466,19 +620,21 @@ import { ref } from 'vue';
 
     };
 
+    //Función para crear un nuevo registro de Impresora
+
     let submitImp = () => {
 
         form.post('/imp/crear');
 
     };
 
+    //Función para crear un nuevo registro de Máquina de Fichar
+
     let submitMF = () => {
 
         form.post('/maquina-fichar/crear');
 
     }
-
-
 
     //Función para crear un nuevo registro de telefonía
     let submitTelefonia = () => {
