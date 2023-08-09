@@ -13,21 +13,21 @@ class Ordenador extends Model
     protected $fillable = [
 
         'nombre_dispositivo',
-        'ip1',
-        'ip2',
+        'id_dispositivo',
+        'ip_principal',
+        'ip_secundaria',
         'procesador',
+        'discoduro',
         'so',
         'ram',
         'programa_ofimatica',
         'licencia_office',
         'licencia_windows',
         'correo_office',
-        'discoduro',
-        'departamento',
         'usuario_principal',
         'usuario_dominio',
-        'zona_trabajo',
         'dominio',
+        'departamento',
         'cabildo',
         'fecha_instalacion',
         'tecnico_informatico',
@@ -45,5 +45,12 @@ class Ordenador extends Model
     protected $casts = [
 
         'created_at' => 'datetime: d-m-Y',
+        'updated_at' => 'datetime: d-m-Y',
+        'fecha_instalacion' => 'datetime: d-m-Y'
     ];
+
+    public function dispositivo()
+    {
+        return $this->belongsTo(Dispositivo::class,'id_dispositivo');
+    }
 }

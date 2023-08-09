@@ -11,14 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('grabadora', function (Blueprint $table) {
+        Schema::create('grabadoras', function (Blueprint $table) {
             $table->id();
             $table->string('nombre_dispositivo')->unique()->nullable(false);
+            $table->unsignedBigInteger('id_dispositivo');
             $table->string('modelo')->nullable(false);
             $table->text('observaciones')->nullable(true);
             $table->timestamps();
 
             $table->foreign('nombre_dispositivo')->references('nombre_dispositivo')->on('dispositivos')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('id_dispositivo')->references('id')->on('dispositivos')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

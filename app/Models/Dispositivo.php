@@ -9,14 +9,13 @@ class Dispositivo extends Model
 {
     use HasFactory;
 
-
-
     protected $fillable = [
 
         'nombre_dispositivo',
         'numero_serie',
         'tipo_dispositivo',
-        'conexion'
+        'conexion',
+        'zona_trabajo'
     ];
 
     protected $hidden = [

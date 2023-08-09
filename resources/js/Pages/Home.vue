@@ -6,6 +6,8 @@
         <div class="flex flex-row justify-start overflow gap-5 xl:justify-end">
             <Link href="/dispositivos/crear" type="submit" class="bg-teal-600 border border-transparent rounded-md font-semibold text-base text-white mt-2 hover:bg-teal-700 focus:bg-teal-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 ease-out duration-300 sm:p-2 text-lg md:p-2 text-lg xl:p-2 text-lg 2xl:p-2 text-lg ">Añadir Dispositivo</Link>
             <Link href="/usuario" type="submit" class="bg-gray-600 border border-transparent rounded-md font-semibold text-base text-white mt-2 p-2 hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 ease-out duration-300 sm:p-2 text-lg md:p-2 text-lg xl:p-2 text-lg 2xl:p-2 text-lg">Añadir Usuario</Link>
+            <Link href="/departamentos" type="submit" class="bg-teal-600 border border-transparent rounded-md font-semibold text-base text-white mt-2 hover:bg-teal-700 focus:bg-teal-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 ease-out duration-300 sm:p-2 text-lg md:p-2 text-lg xl:p-2 text-lg 2xl:p-2 text-lg ">Añadir Departamento</Link>
+            <Link href="/zonas" type="submit" class="bg-gray-600 border border-transparent rounded-md font-semibold text-base text-white mt-2 p-2 hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 ease-out duration-300 sm:p-2 text-lg md:p-2 text-lg xl:p-2 text-lg 2xl:p-2 text-lg">Añadir Zona</Link>
             
             <div class="relative">
                 <i class="absolute fa fa-search text-gray-400 top-5 left-4"></i>
@@ -14,23 +16,20 @@
 
         </div>
 
-        <div class="overflow-auto rounded-lg shadow mt-5">
+        <div class="overflow-auto rounded-lg shadow mt-7">
 
-            <div v-show="mensajeenviado">
-            </div>
+            <div v-show="mensajeenviado"></div>
             
-        
-
-            <table class="w-full mt-9 border-separate border-spacing-2">
+            <table class="w-full mt-3 border-separate border-spacing-2">
 
                 <thead class="bg-gray-50 border-b-2 border-gray-200">
 
                     <tr>
-                        <th class="w-auto p-3 text-lg font-semibold tracking-wide text-left text-white bg-teal-600">Nombre Equipo</th>
-                        <th class="w-auto p-3 text-lg font-semibold tracking-wide text-left text-white bg-teal-600">Dirección IP</th>
-                        <th class="w-auto p-3 text-lg font-semibold tracking-wide text-left text-white bg-teal-600">Procesador</th>
-                        <th class="w-auto p-3 text-lg font-semibold tracking-wide text-left text-white bg-teal-600">Departamento</th>
-                        <th class="w-auto p-3 text-lg font-semibold tracking-wide text-left text-white bg-teal-600">Usuario Principal</th>
+                        <th class="w-auto p-3 text-lg font-semibold tracking-wide text-left text-white bg-teal-600">ID</th>
+                        <th class="w-auto p-3 text-lg font-semibold tracking-wide text-left text-white bg-teal-600">Nombre Dispositivo</th>
+                        <th class="w-auto p-3 text-lg font-semibold tracking-wide text-left text-white bg-teal-600">Numero Serie</th>
+                        <th class="w-auto p-3 text-lg font-semibold tracking-wide text-left text-white bg-teal-600">Tipo Dispositivo</th>
+                        <th class="w-auto p-3 text-lg font-semibold tracking-wide text-left text-white bg-teal-600">Zona Trabajo</th>
                         <th class="w-auto p-3 text-lg font-semibold tracking-wide text-left text-white bg-teal-600">Administrar</th>
 
                     </tr>
@@ -38,41 +37,120 @@
                 <tbody class="divide-y divide-gray-100">
                     <tr v-for="dispositivo in dispositivos.data" :key="dispositivo.id" class="bg-gray-100 border-b border-gray-200">
                         <td class="p-3 text-xl text-gray-700 whitespace-nowrap">
+                            {{dispositivo.id}}
+                        </td>
+                        
+                        <td class="p-3 text-xl text-gray-700 whitespace-nowrap">
                             {{dispositivo.nombre_dispositivo}}
                         </td>
 
                         <td class="p-3 text-xl text-gray-700 whitespace-nowrap">
-                            {{dispositivo.ip1}}
+                            {{dispositivo.numero_serie}}
                         </td>
-
                         <td class="p-3 text-xl text-gray-700 whitespace-nowrap">
-                            {{dispositivo.procesador}}
+                            {{dispositivo.tipo_dispositivo}}
                         </td>
-
                         <td class="p-3 text-xl text-gray-700 whitespace-nowrap">
-                            {{dispositivo.departamento}}
+                            {{dispositivo.zona_trabajo}}
                         </td>
-
-                        <td class="p-3 text-xl text-gray-700 whitespace-nowrap">
-                            {{dispositivo.usuario_principal}}
-                        </td>
-
                         <td class="flex justify-evenly p-3 text-xl text-gray-700 whitespace-nowrap">
-                            <div class="w-2 transform hover:text-blue-500 hover:scale-110">
-                                <Link :href="`/dispositivos/mostrar/${dispositivo.id}`">
-                                    <i class="fa-regular fa-eye"></i>
-                                </Link>
-                            </div>
-                            <div class="w-2 transform hover:text-green-500 hover:scale-110">
-                                <Link :href="`/dispositivos/editar/${dispositivo.id}`" >
-                                    <i class="fa-solid fa-pen-to-square"></i>
-                                </Link>
-                            </div>
-                            <div class="w-2 transform hover:text-red-500 hover:scale-110">
-                                <button type="buttton" data-toggle="modal" data-target="#modal" @click="modalAbierto(dispositivo.id)">
+                            <div v-if="dispositivo.tipo_dispositivo === 'Ordenador'" class="flex flex-row gap-10">
+                                <div class="w-2 transform hover:text-blue-500 hover:scale-110">
+                                    <Link :href="`/ordenador/mostrar/${dispositivo.id}`">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </Link>
+                                </div>
+
+                                <div class="w-2 transform hover:text-green-500 hover:scale-110">
+                                    <Link :href="`/ordenador/actualizar/${dispositivo.id}`" >
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                    </Link>
+                                </div>
+                                <div class="w-2 transform hover:text-red-500 hover:scale-110">
+                                <button type="buttton" data-toggle="modal" data-target="#modal" @click="eliminar(dispositivo.id)">
                                     <i class="fa-solid fa-trash-can"></i>
                                 </button>
+                                </div>
                             </div>
+                        
+                    
+                            <div v-else-if="dispositivo.tipo_dispositivo === 'Grabadora'" class="flex flex-row gap-10">
+                                <div class="w-2 transform hover:text-blue-500 hover:scale-110">
+                                    <Link :href="`/grabadora/mostrar/${dispositivo.id}`">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </Link>
+                                </div>
+
+                                <div class="w-2 transform hover:text-green-500 hover:scale-110">
+                                    <Link :href="`/grabadora/actualizar/${dispositivo.id}`" >
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                    </Link>
+                                </div>
+                                <div class="w-2 transform hover:text-red-500 hover:scale-110">
+                                <button type="buttton" data-toggle="modal" data-target="#modal" @click="eliminar(dispositivo.id)">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                                </div>
+
+                            </div>
+
+                            <div v-else-if="dispositivo.tipo_dispositivo === 'Impresora'" class="flex flex-row gap-10">
+                                <div class="w-2 transform hover:text-blue-500 hover:scale-110">
+                                    <Link :href="`/impresora/mostrar/${dispositivo.id}`">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </Link>
+                                </div>
+
+                                <div class="w-2 transform hover:text-green-500 hover:scale-110">
+                                    <Link :href="`/impresora/actualizar/${dispositivo.id}`" >
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                    </Link>
+                                </div>
+                                <div class="w-2 transform hover:text-red-500 hover:scale-110">
+                                <button type="buttton" data-toggle="modal" data-target="#modal" @click="eliminar(dispositivo.id)">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                                </div>
+                            </div>
+
+                            <div v-else-if="dispositivo.tipo_dispositivo === 'Teléfono'" class="flex flex-row gap-10">
+                                <div class="w-2 transform hover:text-blue-500 hover:scale-110">
+                                    <Link :href="`/telefono/mostrar/${dispositivo.id}`">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </Link>
+                                </div>
+
+                                <div class="w-2 transform hover:text-green-500 hover:scale-110">
+                                    <Link :href="`/telefono/actualizar/${dispositivo.id}`" >
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                    </Link>
+                                </div>
+                                <div class="w-2 transform hover:text-red-500 hover:scale-110">
+                                <button type="buttton" data-toggle="modal" data-target="#modal" @click="eliminar(dispositivo.id)">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                                </div>
+                            </div>
+
+                            <div v-else-if="dispositivo.tipo_dispositivo === 'Máquina de Fichar'" class="flex flex-row gap-10">
+                                <div class="w-2 transform hover:text-blue-500 hover:scale-110">
+                                    <Link :href="`/maquina-fichar/mostrar/${dispositivo.id}`">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </Link>
+                                </div>
+
+                                <div class="w-2 transform hover:text-green-500 hover:scale-110">
+                                    <Link :href="`/maquina-fichar/actualizar/${dispositivo.id}`" >
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                    </Link>
+                                </div>
+                                <div class="w-2 transform hover:text-red-500 hover:scale-110">
+                                <button type="buttton" data-toggle="modal" data-target="#modal" @click="eliminar(dispositivo.id)">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                                </div>
+                            </div>
+                            
                         </td> 
 
                     </tr> 
@@ -116,9 +194,6 @@
 
     const mensaje = page.props.mensaje;
 
-    const isModalOpen = ref(false);
-
-
     //Funcion para generar las propiedades obtenidas del controlador
 
      defineProps({
@@ -159,61 +234,4 @@
 
 }
 
-const formPrograma = useForm({
-
-nombre:''
-
-});
-
-const anadirprograma = () => {
-
-formPrograma.post('/programa/crear')   
-
-}
-
 </script>
-
-
-<style>
-
-    .modal-bg {
-
-
-        position:fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-
-        background-color: rgba(0,0,0,0.5);
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-    }
-
-    .modal{
-
-        background: white;
-        padding: 50px 100px;
-        border-radius: 5px;
-        box-shadow: 0px 10px 5px 2px rgba(0, 0, 0,0.1);
-
-
-    }
-
-    .modal .cerrar-boton{
-
-        position: absolute;
-        top:10px;
-        right:10px;
-
-        background: none;
-        border: none;
-        cursor: pointer;
-
-
-    }
-
-</style>

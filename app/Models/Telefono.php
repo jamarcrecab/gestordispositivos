@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Telefonos extends Model
+class Telefono extends Model
 {
     use HasFactory;
 
@@ -13,6 +13,7 @@ class Telefonos extends Model
     protected $fillable = [
 
         'nombre_dispositivo',
+        'id_dispositivo',
         'marca',
         'modelo',
         'usuario_principal',
@@ -34,5 +35,10 @@ class Telefonos extends Model
 
         'created_at' => 'datetime: d-m-Y',
 
-    ]
+    ];
+
+    public function dispositivo()
+    {
+        return $this->belongsTo(Dispositivo::class,'id_dispositivo');
+    }
 }

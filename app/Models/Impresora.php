@@ -13,8 +13,11 @@ class Impresora extends Model
     protected $fillable = [
 
         'nombre_dispositivo',
+        'id_dispositivo',
         'ip_principal',
         'ip_secundaria',
+        'marca',
+        'modelo',
         'cabildo',
         'observaciones'
 
@@ -31,4 +34,9 @@ class Impresora extends Model
 
         'created_at' => 'datetime: d-m-Y',
     ];
+
+    public function dispositivo()
+    {
+        return $this->belongsTo(Dispositivo::class,'id_dispositivo');
+    }
 }

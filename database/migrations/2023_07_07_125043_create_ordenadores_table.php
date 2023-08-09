@@ -11,22 +11,24 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ordenadores', function (Blueprint $table) {
+        Schema::create('ordenadors', function (Blueprint $table) {
             $table->id();
             $table->string('nombre_dispositivo')->unique()->nullable(false);
-            $table->string('ip1')->nullable(false);
-            $table->string('ip2')->nullable(true);
+            $table->unsignedBigInteger('id_dispositivo');
+            $table->string('ip_principal')->nullable(false);
+            $table->string('ip_secundaria')->nullable(true);
             $table->string('procesador')->nullable(false);
             $table->string('so')->nullable(false);
             $table->integer('ram')->nullable(false);
+            $table->string('discoduro')->nullable(false);
             $table->string('programa_ofimatica')->nullable(false);
             $table->string('licencia_office')->nullable(true);
             $table->string('licencia_windows')->nullable(true);
             $table->string('correo_office')->nullable(true);
-            $table->string('discoduro')->nullable(false);
-            $table->string('departamento')->nullable(false);
+            $table->string('dominio')->nullable(false);
             $table->string('usuario_principal')->nullable(false);
             $table->string('usuario_dominio')->nullable(true);
+            $table->string('departamento')->nullable(false);
             $table->enum('cabildo',['Si','No'])->nullable(false);
             $table->timestamp('fecha_instalacion')->nullable(false);
             $table->string('tecnico_informatico')->nullable(false);
@@ -34,6 +36,7 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreign('nombre_dispositivo')->references('nombre_dispositivo')->on('dispositivos')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('id_dispositivo')->references('id')->on('dispositivos')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

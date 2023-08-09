@@ -13,7 +13,8 @@ class MaquinaFichar extends Model
     protected $fillable = [
 
         'nombre_dispositivo',
-        'modelo',
+        'id_dispositivo',
+        'ip_principal',
         'observaciones',
 
 
@@ -30,5 +31,10 @@ class MaquinaFichar extends Model
 
         'created_at' => 'datetime: d-m-Y',
 
-    ]
+    ];
+
+    public function dispositivo()
+    {
+        return $this->belongsTo(Dispositivo::class,'id_dispositivo');
+    }
 }

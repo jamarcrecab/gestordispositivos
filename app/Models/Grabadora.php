@@ -12,6 +12,7 @@ class Grabadora extends Model
 
     protected $fillable = [
         'nombre_dispositivo',
+        'id_dispositivo',
         'modelo',
         'observaciones',
         
@@ -27,4 +28,9 @@ class Grabadora extends Model
         'created_at' => 'datetime: d-m-Y',
 
     ];
+
+    public function dispositivo()
+    {
+        return $this->belongsTo(Dispositivo::class,'id_dispositivo');
+    }
 }
