@@ -45,7 +45,7 @@ class ZonasController extends Controller
 
             ]);
 
-            return back();
+            return redirect('/dispositivos')->with('mensaje','Zona de Trabajo añadida correctamente');
 
         }
 

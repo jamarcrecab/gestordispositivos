@@ -1,6 +1,6 @@
 <template>
 
-    <Head title="Ver Máquina de Fichar" />
+    <Head title="Ver Grabadora" />
 
     <Layout>
 

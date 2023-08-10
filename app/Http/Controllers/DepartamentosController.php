@@ -45,7 +45,7 @@ class DepartamentosController extends Controller
 
             ]);
 
-            return back();
+            return redirect('/dispositivos')->with('mensaje','Departamento añadido correctamente');
 
         }
 

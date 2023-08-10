@@ -1,11 +1,19 @@
 <template>
 
-    <Head title="Crear Dispositivo"></Head>
+    <Head title="Crear Departamento"></Head>
 
     <Layout>
 
-    <div class="container mx-auto">
-        <h3 class="text-3xl mt-12 font-bold text-neutral-800">Añadir Departamento</h3>
+        <div class="container mx-auto">
+        <div class="d-flex">
+            <div>
+                <h3 class="text-3xl mt-12 font-bold text-neutral-800">Añadir Departamento</h3>
+            </div>
+            <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 p-5 rounded relative w-auto md: w-1/3 lg:w-2/3 mt-4" role="alert">
+                <strong class="font-bold">¡Importante! </strong>
+                <span class="block sm:inline">Comprobar antes de añadir el departamento que no se haya añadido anteriormente uno parecido. Para comprobarlo revisar el campo "Departamento" en el formulario de Teléfonos y Ordenadores.</span>
+            </div>
+        </div>
 
         <form  @submit.prevent="submit" class="w-auto flex flex-col justify-start text-teal-600 mb-10 mt-7 bg-gray-50 shadow-md p-10 md:flex-row w-2/3 lg:w-2/3">
                 <div class="pr-20">

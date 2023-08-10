@@ -1,6 +1,6 @@
 <template>
 
-    <Head title="Editar Dispositivo"></Head>
+    <Head title="Editar Ordenador"></Head>
 
     <Layout>
 
@@ -34,9 +34,12 @@
 
                     <div class="mt-4">
                         <label for="zonatrabajo" class="text-lg mb-3">Zona de Trabajo</label>
-                        <input v-model="form.zona_trabajo" type="text" class="block appearance-none w-80 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-teal-600 focus:shadow-outline-teal-600"/>
+                        <select v-model="form.zona_trabajo" class="block appearance-none w-35 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:ring-teal-600 focus:outline-teal-600 focus:shadow-outline-teal-600 md:w-50 sm:w-50 xl:w-80 2xl:w-80">
+                            <option v-for="zona_trabajo in zonas" :value="zona_trabajo.nombre" :key="zona_trabajo.id">{{ zona_trabajo.nombre }}</option>
+                        </select>
 
-                        <div v-if="form.errors.zona_trabajo" v-text="form.errors.zona_trabajo" class="w-80 mt-5 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert"></div>
+                        <div v-if="form.errors.zona_trabajo" v-text="form.errors.zona_trabajo" class="block appearance-none w-35 mt-5 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded md:w-50 sm:w-50 xl:w-80 2xl:w-80  md:w-50 sm:w-50 xl:w-80 2xl:w-80" role="alert"></div>
+                        
                     </div>
 
                     <div class="mt-4">
@@ -208,9 +211,9 @@
 
         zonas.value = response.data;
 
-    });
+        });
 
-        };
+    };
 
     const getDepartamentos = async () => {
 

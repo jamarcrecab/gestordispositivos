@@ -1,6 +1,6 @@
 <template>
 
-    <Head title="Ver Dispositivo" />
+    <Head title="Ver Impresora" />
 
     <Layout>
 

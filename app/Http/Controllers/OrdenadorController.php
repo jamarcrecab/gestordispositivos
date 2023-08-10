@@ -103,7 +103,6 @@ class OrdenadorController extends Controller
 
     public function edit($id){
 
-
         return Inertia::render('Dispositivos/Ordenadores/Edit',[
 
             'dispositivo' => Dispositivo::find($id),

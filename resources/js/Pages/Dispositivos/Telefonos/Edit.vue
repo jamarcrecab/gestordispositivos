@@ -1,6 +1,6 @@
 <template>
 
-    <Head title="Editar Dispositivo"></Head>
+    <Head title="Editar Teléfono"></Head>
 
     <Layout>
 
@@ -124,9 +124,9 @@
 
         zonas.value = response.data;
 
-    });
+        });
 
-        };
+    };
 
     const getDepartamentos = async () => {
 
