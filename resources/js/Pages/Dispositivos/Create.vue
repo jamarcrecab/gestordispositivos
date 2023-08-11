@@ -244,7 +244,7 @@
                             <option v-for="zona_trabajo in zonas" :key="zona_trabajo.id">{{ zona_trabajo.nombre }}</option>
                         </select>
 
-                        <div v-if="formImpresora.errors.zona_trabajo" v-text="formImpresora.errors.conexion" class="block appearance-none w-35 mt-5 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded md:w-50 sm:w-50 xl:w-80 2xl:w-80  md:w-50 sm:w-50 xl:w-80 2xl:w-80" role="alert"></div>
+                        <div v-if="formImpresora.errors.zona_trabajo" v-text="formImpresora.errors.zona_trabajo" class="block appearance-none w-35 mt-5 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded md:w-50 sm:w-50 xl:w-80 2xl:w-80  md:w-50 sm:w-50 xl:w-80 2xl:w-80" role="alert"></div>
                         
                     </div>
 
@@ -342,7 +342,7 @@
                             <option v-for="zona_trabajo in zonas" :key="zona_trabajo.id">{{ zona_trabajo.nombre }}</option>
                         </select>
 
-                        <div v-if="formMF.errors.zona_trabajo" v-text="formMF.errors.conexion" class="block appearance-none w-35 mt-5 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded md:w-50 sm:w-50 xl:w-80 2xl:w-80  md:w-50 sm:w-50 xl:w-80 2xl:w-80" role="alert"></div>
+                        <div v-if="formMF.errors.zona_trabajo" v-text="formMF.errors.zona_trabajo" class="block appearance-none w-35 mt-5 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded md:w-50 sm:w-50 xl:w-80 2xl:w-80  md:w-50 sm:w-50 xl:w-80 2xl:w-80" role="alert"></div>
                         
                     </div>
 
@@ -402,7 +402,7 @@
                             <option v-for="zona_trabajo in zonas" :key="zona_trabajo.id">{{ zona_trabajo.nombre }}</option>
                         </select>
 
-                        <div v-if="formGrabadora.errors.zona_trabajo" v-text="formGrabadora.errors.conexion" class="block appearance-none w-35 mt-5 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded md:w-50 sm:w-50 xl:w-80 2xl:w-80  md:w-50 sm:w-50 xl:w-80 2xl:w-80" role="alert"></div>
+                        <div v-if="formGrabadora.errors.zona_trabajo" v-text="formGrabadora.errors.zona_trabajo" class="block appearance-none w-35 mt-5 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded md:w-50 sm:w-50 xl:w-80 2xl:w-80  md:w-50 sm:w-50 xl:w-80 2xl:w-80" role="alert"></div>
                         
                     </div>
 
@@ -474,7 +474,7 @@
                             <option v-for="zona_trabajo in zonas" :key="zona_trabajo.id">{{ zona_trabajo.nombre }}</option>
                         </select>
 
-                        <div v-if="formTelefonos.errors.zona_trabajo" v-text="formTelefonos.errors.conexion" class="block appearance-none w-35 mt-5 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded md:w-50 sm:w-50 xl:w-80 2xl:w-80  md:w-50 sm:w-50 xl:w-80 2xl:w-80" role="alert"></div>
+                        <div v-if="formTelefonos.errors.zona_trabajo" v-text="formTelefonos.errors.zona_trabajo" class="block appearance-none w-35 mt-5 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded md:w-50 sm:w-50 xl:w-80 2xl:w-80  md:w-50 sm:w-50 xl:w-80 2xl:w-80" role="alert"></div>
                         
                     </div>
 
@@ -656,7 +656,7 @@
         nombre_dispositivo:'',
         numero_serie:'',
         conexion:'',
-        zona_trabajo:'Informática',
+        zona_trabajo:'',
         tipo_dispositivo:'Teléfono',
         marca:'',
         modelo:'',

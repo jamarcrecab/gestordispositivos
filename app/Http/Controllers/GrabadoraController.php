@@ -22,6 +22,7 @@ class GrabadoraController extends Controller
             'conexion' => ['required'],
             'zona_trabajo' => ['required'],
             'modelo' => ['required'],
+            'ip_principal' => ['required'],
             'observaciones' => ['nullable']
 
         ],
@@ -32,6 +33,7 @@ class GrabadoraController extends Controller
             'zona_trabajo.required' => 'La zona de trabajo es obligatoria',
             'conexion.required' => 'La conexión es obligatoria',
             'modelo.required' => 'El modelo es obligatorio',
+            'ip_principal.required' => 'La IP Principal es obligatoria'
         ]);
 
         $dispositivo = Dispositivo::create([

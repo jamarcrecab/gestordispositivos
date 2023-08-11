@@ -11,7 +11,7 @@
             
             <div class="relative">
                 <i class="absolute fa fa-search text-gray-400 top-5 left-4"></i>
-                <input type="text"  v-model="busqueda" class="bg-white h-14 w-full px-12 rounded-lg focus:shadow-outline-teal-600 hover:cursor-pointer" name="">
+                <input type="text"  v-model="busqueda" class="bg-white h-14 w-full px-12 rounded-lg focus:shadow-outline-teal-600 hover:cursor-pointer" placeholder="Buscar Dispositivo..." name="">
             </div>
 
         </div>

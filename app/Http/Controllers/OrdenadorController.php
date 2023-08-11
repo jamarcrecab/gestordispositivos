@@ -46,7 +46,7 @@ class OrdenadorController extends Controller
             'tipo_dispositivo.required' => 'El tipo de dispositivo es obligatorio',
             'conexion.required' => 'La conexión es obligatoria',
             'zona_trabajo.required' => 'La zona de trabajo es obligatoria',
-            'ip_principal.required' => 'La ip_principal es obligatoria',
+            'ip_principal.required' => 'La IP Principal es obligatoria',
             'dominio.required' => 'El dominio es obligatorio',
             'procesador.required' => 'El procesador es obligatorio',
             'so.required' => 'El sistema operativo es obligatorio',
@@ -59,7 +59,7 @@ class OrdenadorController extends Controller
             'zona_trabajo.required' => 'La zona de trabajo es obligatoria',
             'cabildo.required' => 'El campo cabildo tiene que estar marcado',
             'fecha_instalacion' => 'La fecha de instalación es obligatoria',
-            'tecnico_informatico.required' => 'La persona de instalación es obligatoria'
+            'tecnico_informatico.required' => 'El técnico informático es obligatorio'
         ]);
 
         $dispositivo = Dispositivo::create([
